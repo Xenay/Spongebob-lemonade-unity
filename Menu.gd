@@ -95,13 +95,12 @@ func _on_buy_lemonade():
 			return
 	money.text = str(float(money.text)+int(price.text)/100.0)+" $"
 	pitcher -= 1
+	$Menu/Start/Inventory/Cups/Value.text   = str(int($Menu/Start/Inventory/Cups/Value.text) - 1)
+	$Menu/Start/Inventory/Ice/Value.text = str(int($Menu/Start/Inventory/Ice/Value.text) - int($Menu/Start/Recipe/Ice/Value.text)) 
 	$Menu/InGame/top/Pitcher/Value.text = str(pitcher)
 	$Menu/InGame/top/Cups/Value.text = $Menu/Start/Inventory/Cups/Value.text
 	$Menu/InGame/top/Ice/Value.text = $Menu/Start/Inventory/Ice/Value.text
-	$Menu/Start/Inventory/Cups/Value.text   = str(int($Menu/Start/Inventory/Cups/Value.text) - 1)
-	$Menu/Start/Inventory/Ice/Value.text = str(int($Menu/Start/Inventory/Ice/Value.text) - int($Menu/Start/Recipe/Ice/Value.text)) 
 	print("sale made")
-
 func refill_pitcher():
 	if int($Menu/Start/Inventory/Lemons/Value.text) - int($Menu/Start/Recipe/Lemons/Value.text) < 0:
 		return false
