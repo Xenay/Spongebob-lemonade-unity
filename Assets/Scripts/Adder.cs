@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class Adder : MonoBehaviour
 {
     MainMenu mainMenu = new MainMenu();
-    double price_per_cup = 0.25;
-    float lemons_per_pitcher = 4;
-    float sugar_per_pitcher = 4;
-    float ice_per_cup = 5;
+    static double price_per_cup = 0.25;
+    static float lemons_per_pitcher = 4;
+    static float sugar_per_pitcher = 4;
+    static float ice_per_cup = 5;
     public Button plus;
     public Button minus;
     public TextMeshProUGUI right_amount;
@@ -23,41 +23,45 @@ public class Adder : MonoBehaviour
     {
         price_per_cup += 0.05;
         right_amount.text = (price_per_cup).ToString();
-
+        Debug.Log(price_per_cup);
     }
     public void AddLemons()
     {
-        right_amount.text = (lemons_per_pitcher + 1).ToString();
+        right_amount.text = (lemons_per_pitcher += 1).ToString();
+      
 
     }
     public void AddSugar()
     {
-        right_amount.text = (sugar_per_pitcher + 1).ToString();
+        right_amount.text = (sugar_per_pitcher += 1).ToString();
 
     }
     public void AddIce()
     {
-        right_amount.text = (ice_per_cup + 1).ToString();
+        right_amount.text = (ice_per_cup += 1).ToString();
 
     }
 
     public void DecreasePrice()
     {
-        right_amount.text = (price_per_cup -= 0.05).ToString();
+        
+        price_per_cup -= 0.05;
+        right_amount.text = (price_per_cup).ToString();
+        Debug.Log(price_per_cup);
     }
     public void DecreaseLemons()
     {
-        right_amount.text = (lemons_per_pitcher - 1).ToString();
-
+        right_amount.text = (lemons_per_pitcher -= 1).ToString();
+        
     }
     public void DecreaseSugar()
     {
-        right_amount.text = (sugar_per_pitcher - 1).ToString();
+        right_amount.text = (sugar_per_pitcher -= 1).ToString();
 
     }
     public void DecreaseIce()
     {
-        right_amount.text = (ice_per_cup - 1).ToString();
+        right_amount.text = (ice_per_cup -= 1).ToString();
 
     }
     public double getPrice()

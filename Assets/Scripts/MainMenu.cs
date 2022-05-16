@@ -7,26 +7,28 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-
+    
     static double balance = 20;
     static int paper_cups;
-    double lemons_price = 2;
+    double lemons_price = 0.50;
     static int lemons;
-    double paper_cup_price = 3;
+    double paper_cup_price = 0.90;
     static int cups_sugar;
-    double ice_cubes_price = 2;
+    double ice_cubes_price = 0.60;
     static int ice_cubes;
-    double cups_sugar_price = 2;
+    double cups_sugar_price = 0.70;
     public TextMeshProUGUI amount;
     int counter = 0;
 
+
     private void Awake()
     {
+        
         //random values
-        lemons_price = 2.27 + System.Math.Round(Random.Range(0.0f, 0.5f),2);
-        paper_cup_price = 1.71 + System.Math.Round(Random.Range(0.0f, 0.3f),2);
-        ice_cubes_price = 1 + System.Math.Round(Random.Range(0.0f, 0.3f),2);
-        cups_sugar_price = 2.30 + System.Math.Round(Random.Range(0.0f, 0.3f),2);
+        lemons_price += System.Math.Round(Random.Range(0.0f, 0.2f),2);
+        paper_cup_price +=  System.Math.Round(Random.Range(0.0f, 0.2f),2);
+        ice_cubes_price +=  System.Math.Round(Random.Range(0.0f, 0.2f),2);
+        cups_sugar_price +=  System.Math.Round(Random.Range(0.0f, 0.2f),2);
         
     }
     
